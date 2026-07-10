@@ -1,0 +1,87 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    background:black;
+    font-family:Pretendard, sans-serif;
+}
+
+#camera-container{
+    position:relative;
+    width:100%;
+    height:100%;
+}
+
+#camera{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+#overlay{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+}
+
+#campaign{
+    position:absolute;
+    top:20px;
+    left:20px;
+
+    color:white;
+
+    font-size:15px;
+
+    opacity:.8;
+}
+
+#mute{
+
+    position:absolute;
+
+    top:20px;
+
+    right:20px;
+
+    color:white;
+
+    font-size:24px;
+
+    opacity:.8;
+
+}
+
+#footer{
+
+    position:absolute;
+
+    bottom:20px;
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:15px;
+
+    color:white;
+
+    font-size:20px;
+
+}
+
+#logo{
+
+    height:45px;
+
+}
