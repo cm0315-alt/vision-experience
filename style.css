@@ -46,55 +46,35 @@ body{
 /* 상단 */
 
 #topBar{
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    padding:3px 10px;
-
-    height:24px;
-
-    background:rgba(0,0,0,.12);
-
-    color:white;
-
-    font-size:11px;
-
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:2px 8px;
+height:24px;
+background:rgba(0,0,0,.08);
+color:white;
+font-size:11px;
 }
 
 /* 하단 */
 
 #bottomBar{
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    gap:6px;
-
-    padding:2px 8px;
-
-    height:34px;
-
-    background:rgba(0,0,0,.12);
-
+display:flex;
+justify-content:center;
+align-items:center;
+gap:6px;
+padding:2px 8px;
+height:30px;
+background:rgba(0,0,0,.08);
 }
 
 #logo{
-
-    height:20px;
-
+height:20px;
+width:auto;
 }
 
 #bottomText{
-
-    color:white;
-
-    font-size:15px;
-
-    font-weight:600;
-
+color:white;
+font-size:12px;
+font-weight:600;
 }
