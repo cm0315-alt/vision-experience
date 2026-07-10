@@ -1,36 +1,62 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NC Vision Experience</title>
 
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>시지각 체험</title>
+
+<meta name="theme-color" content="#000000">
+
+<link rel="manifest" href="manifest.json">
+
+<link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
-<div id="camera-container">
+<div id="app">
 
-    <video id="camera" autoplay playsinline></video>
+    <video
+        id="camera"
+        autoplay
+        playsinline
+        muted>
+    </video>
 
     <div id="overlay">
 
-        <div id="campaign">
-            NC 다이노스 × 장애인부모연대 창원시지회
-        </div>
+        <div id="topBar">
 
-        <div id="mute">
-            🔇
-        </div>
+            <span id="campaign">
 
-        <div id="footer">
+                NC다이노스 × 경남장애인부모연대 창원시지회
 
-            <img src="logo.png" id="logo">
-
-            <span>
-                장애인식개선캠페인
             </span>
+
+            <span id="mute">
+
+                🔇
+
+            </span>
+
+        </div>
+
+        <div id="bottomBar">
+
+            <img
+                src="logo.png"
+                id="logo"
+                alt="기관로고">
+
+            <div id="bottomText">
+
+                장애인식개선 캠페인
+
+            </div>
 
         </div>
 

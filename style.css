@@ -1,3 +1,7 @@
+/* ===========================
+   기본 설정
+=========================== */
+
 *{
     margin:0;
     padding:0;
@@ -8,80 +12,143 @@ html,body{
     width:100%;
     height:100%;
     overflow:hidden;
-    background:black;
-    font-family:Pretendard, sans-serif;
+    background:#000;
+    touch-action:none;
+    font-family:Pretendard, Arial, sans-serif;
 }
 
-#camera-container{
+body{
+    user-select:none;
+}
+
+/* ===========================
+   카메라
+=========================== */
+
+#app{
     position:relative;
-    width:100%;
-    height:100%;
+    width:100vw;
+    height:100vh;
+    overflow:hidden;
+    background:black;
 }
 
 #camera{
+
+    position:absolute;
+
+    inset:0;
+
     width:100%;
+
     height:100%;
+
     object-fit:cover;
+
+    transform:scale(1.02);
+
 }
+
+/* ===========================
+   UI
+=========================== */
 
 #overlay{
+
     position:absolute;
+
     inset:0;
-    pointer-events:none;
-}
-
-#campaign{
-    position:absolute;
-    top:20px;
-    left:20px;
-
-    color:white;
-
-    font-size:15px;
-
-    opacity:.8;
-}
-
-#mute{
-
-    position:absolute;
-
-    top:20px;
-
-    right:20px;
-
-    color:white;
-
-    font-size:24px;
-
-    opacity:.8;
-
-}
-
-#footer{
-
-    position:absolute;
-
-    bottom:20px;
-
-    width:100%;
 
     display:flex;
 
-    justify-content:center;
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    pointer-events:none;
+
+}
+
+/* ===========================
+   상단
+=========================== */
+
+#topBar{
+
+    display:flex;
+
+    justify-content:space-between;
 
     align-items:center;
 
-    gap:15px;
+    padding:14px 18px;
+
+    background:rgba(0,0,0,.25);
+
+    backdrop-filter:blur(6px);
+
+}
+
+#campaign{
+
+    color:white;
+
+    font-size:14px;
+
+    opacity:.92;
+
+    letter-spacing:.5px;
+
+}
+
+#mute{
 
     color:white;
 
     font-size:20px;
 
+    opacity:.85;
+
+}
+
+/* ===========================
+   하단
+=========================== */
+
+#bottomBar{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:16px;
+
+    background:rgba(0,0,0,.25);
+
+    backdrop-filter:blur(6px);
+
 }
 
 #logo{
 
-    height:45px;
+    height:48px;
+
+}
+
+#bottomText{
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    letter-spacing:.5px;
 
 }
