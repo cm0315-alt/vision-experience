@@ -1,7 +1,3 @@
-/* ===========================
-   기본 설정
-=========================== */
-
 *{
     margin:0;
     padding:0;
@@ -14,130 +10,82 @@ html,body{
     overflow:hidden;
     background:#000;
     touch-action:none;
-    font-family:Pretendard, Arial, sans-serif;
+    font-family:Arial,sans-serif;
 }
 
 body{
     user-select:none;
 }
 
-/* ===========================
-   카메라
-=========================== */
-
 #app{
     position:relative;
     width:100vw;
     height:100vh;
     overflow:hidden;
-    background:black;
+    background:#000;
 }
 
 #camera{
-
     position:absolute;
-
-    inset:0;
-
     width:100%;
-
     height:100%;
-
     object-fit:cover;
-
-    transform:scale(1.02);
-
 }
 
-/* ===========================
-   UI
-=========================== */
+/* 전체 UI */
 
 #overlay{
-
     position:absolute;
-
     inset:0;
-
     display:flex;
-
     flex-direction:column;
-
     justify-content:space-between;
-
     pointer-events:none;
-
 }
 
-/* ===========================
-   상단
-=========================== */
+/* 상단 */
 
 #topBar{
 
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
 
-    padding:14px 18px;
+    padding:3px 10px;
 
-    background:rgba(0,0,0,.25);
+    height:24px;
 
-    backdrop-filter:blur(6px);
-
-}
-
-#campaign{
+    background:rgba(0,0,0,.12);
 
     color:white;
 
-    font-size:14px;
-
-    opacity:.92;
-
-    letter-spacing:.5px;
+    font-size:11px;
 
 }
 
-#mute{
-
-    color:white;
-
-    font-size:20px;
-
-    opacity:.85;
-
-}
-
-/* ===========================
-   하단
-=========================== */
+/* 하단 */
 
 #bottomBar{
 
     display:flex;
 
-    flex-direction:column;
-
     justify-content:center;
 
     align-items:center;
 
-    gap:10px;
+    gap:6px;
 
-    padding:16px;
+    padding:2px 8px;
 
-    background:rgba(0,0,0,.25);
+    height:34px;
 
-    backdrop-filter:blur(6px);
+    background:rgba(0,0,0,.12);
 
 }
 
 #logo{
 
-    height:48px;
+    height:20px;
 
 }
 
@@ -145,10 +93,8 @@ body{
 
     color:white;
 
-    font-size:18px;
+    font-size:15px;
 
     font-weight:600;
-
-    letter-spacing:.5px;
 
 }
