@@ -50,31 +50,110 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 padding:2px 8px;
-height:24px;
+height:28px;
 background:rgba(0,0,0,.08);
 color:white;
-font-size:11px;
+font-size:14px;
 }
 
 /* 하단 */
 
 #bottomBar{
+
 display:flex;
 justify-content:center;
 align-items:center;
-gap:6px;
-padding:2px 8px;
-height:30px;
-background:rgba(0,0,0,.08);
+gap:8px;
+
+position:absolute;
+left:0;
+right:0;
+bottom:0;
+
+height:44px;
+
+background:rgba(0,0,0,.22);
+
+z-index:999;
+
 }
 
 #logo{
-height:20px;
-width:auto;
+
+height:24px;
+
+display:block;
+
 }
 
 #bottomText{
+
 color:white;
-font-size:12px;
-font-weight:600;
+
+font-size:14px;
+
+font-weight:bold;
+
+}
+
+/* ==========================
+   시지각 체험 효과
+========================== */
+
+#camera{
+
+    animation: visionShake 0.18s infinite alternate;
+
+   filter:
+contrast(1.05)
+brightness(1.02)
+blur(.4px)
+saturate(.92);
+
+    transform:scale(1.03);
+
+}
+
+@keyframes visionShake{
+
+    0%{
+
+        transform:
+        scale(1.03)
+        translate(0px,0px);
+
+    }
+
+    25%{
+
+        transform:
+        scale(1.03)
+        translate(-1px,0px);
+
+    }
+
+    50%{
+
+        transform:
+        scale(1.03)
+        translate(1px,-1px);
+
+    }
+
+    75%{
+
+        transform:
+        scale(1.03)
+        translate(0px,1px);
+
+    }
+
+    100%{
+
+        transform:
+        scale(1.03)
+        translate(-1px,-1px);
+
+    }
+
 }
