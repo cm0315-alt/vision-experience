@@ -100,20 +100,6 @@ font-weight:bold;
    시지각 체험 효과
 ========================== */
 
-#camera{
-
-    animation: visionShake 0.18s infinite alternate;
-
-   filter:
-contrast(1.05)
-brightness(1.02)
-blur(.4px)
-saturate(.92);
-
-    transform:scale(1.03);
-
-}
-
 @keyframes visionShake{
 
     0%{
@@ -156,4 +142,10 @@ saturate(.92);
 
     }
 
+#canvas{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
 }
