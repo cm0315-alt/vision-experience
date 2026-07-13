@@ -88,8 +88,8 @@ function render() {
     const cx = w / 2;
     const cy = h / 2;
 
-    const dx = Math.sin(t * 0.7) * 2;
-    const dy = Math.cos(t * 0.6) * 2;
+    const dx = Math.sin(t * 0.7) * 0.5;
+    const dy = Math.cos(t * 0.6) * 0.5;
 
     ctx.save();
 
@@ -122,7 +122,7 @@ function render() {
             // 화면 가장자리만 왜곡
             const amount = Math.min(r / Math.max(w, h), 1);
 
-            const angle = amount * amount * 0.06;
+            const angle = amount * amount * 0.10;
 
             const sx = Math.cos(angle) * rx - Math.sin(angle) * ry + cx;
             const sy = Math.sin(angle) * rx + Math.cos(angle) * ry + cy;
