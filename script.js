@@ -70,11 +70,11 @@ document.addEventListener("visibilitychange", () => {
 
 let t = 0;
 
-const DISTORTION = 0.02;
+const DISTORTION = 0.01;
 
-const SPIRAL = 0.008;
+const SPIRAL = 0.03;
 
-const ZOOM = 1.01;
+const ZOOM = 1.015;
 
 function render() {
 
