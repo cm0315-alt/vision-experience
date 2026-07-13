@@ -1,0 +1,111 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #000;
+    touch-action: none;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    user-select: none;
+}
+
+#app {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: #000;
+}
+
+#camera {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ========================================================
+   WebGL 캔버스 설정
+   - 내부 픽셀은 JS(WebGL)로 소용돌이치게 만들고,
+   - 아래 animation 속성으로 캔버스 통째로 덜덜 떨리게 만들어 
+     뇌의 시지각 인지 부조화를 극대화합니다.
+========================================================= */
+#canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    /* 물리적 화면 떨림 효과 적용 (너무 어지러우면 이 줄을 주석 처리하세요) */
+    animation: visionShake 0.15s infinite linear;
+}
+
+/* ========================================================
+   UI 오버레이 레이어 (왜곡되지 않는 로고 및 텍스트)
+========================================================= */
+#overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    pointer-events: none;
+    z-index: 10; /* 캔버스 화면보다 무조건 위에 표시 */
+}
+
+/* 상단 바 */
+#topBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2px 8px;
+    height: 28px;
+    background: rgba(0, 0, 0, 0.4);
+    color: white;
+    font-size: 14px;
+}
+
+/* 하단 바 */
+#bottomBar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 44px;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+#logo {
+    height: 24px;
+    display: block;
+}
+
+#bottomText {
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* ========================================================
+   시지각 장애 체험 효과 (CSS 미세 물리 떨림 애니메이션)
+========================================================= */
+@keyframes visionShake {
+    0% { transform: scale(1.03) translate(0px, 0px); }
+    25% { transform: scale(1.03) translate(-2px, 1px); }
+    50% { transform: scale(1.03) translate(1px, -1px); }
+    75% { transform: scale(1.03) translate(-1px, 2px); }
+    100% { transform: scale(1.03) translate(0px, 0px); }
+}
