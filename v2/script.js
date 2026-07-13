@@ -37,8 +37,8 @@ const fsSource = `
         vec2 uv = vUv - 0.5;
         float dist = length(uv);
 
-        // --- 시지각 장애 체험용 나선형 소용돌이 공식 ---
-        float twistStrength = 1.8; // 숫자가 클수록 더 심하게 비틀어집니다.
+        // --- 시지각 장애 체험용 나선형 소용돌이 공식 (최적화 버전) ---
+        float twistStrength = 1.8; 
         float angle = dist * twistStrength + sin(uTime * 0.5) * 0.15;
         
         float s = sin(angle);
@@ -46,13 +46,10 @@ const fsSource = `
         
         vec2 distortedUv = vec2(uv.x * c - uv.y * s, uv.x * s + uv.y * c);
 
-        // 실시간으로 시각 정보의 위치가 미세하게 엇나가도록 파동(Wave) 추가
         distortedUv.x += sin(uTime * 1.2) * 0.01;
         distortedUv.y += cos(uTime * 1.0) * 0.01;
 
-        // 외곽 여백이 잘려 나가는 것을 방지하기 위한 강제 줌인
         distortedUv *= 0.90;
-
         distortedUv += 0.5;
 
         if (distortedUv.x >= 0.0 && distortedUv.x <= 1.0 && distortedUv.y >= 0.0 && distortedUv.y <= 1.0) {
@@ -152,7 +149,7 @@ document.addEventListener("visibilitychange", () => {
 
 let startTime = performance.now();
 
-// 6. 실시간 렌더링 루프 (60fps)
+// 6. 실시간 렌더링 루프
 function render() {
     const currentTime = (performance.now() - startTime) * 0.001;
 
@@ -167,5 +164,17 @@ function render() {
 
     requestAnimationFrame(render);
 }
+
+// ========================================================
+// 👆 [신규] 브라우저 툴바 숨기기 (화면 터치 시 전체화면 진입)
+// ========================================================
+window.addEventListener("click", () => {
+    const docEl = document.documentElement;
+    if (!document.fullscreenElement) {
+        if (docEl.requestFullscreen) docEl.requestFullscreen();
+        else if (docEl.webkitRequestFullscreen) docEl.webkitRequestFullscreen();
+        else if (docEl.msRequestFullscreen) docEl.msRequestFullscreen();
+    }
+});
 
 startCamera();

@@ -6,7 +6,8 @@
 
 html, body {
     width: 100%;
-    height: 100%;
+    /* vh 대신 %를 사용하여 모바일 브라우저 주소창 변화에 유연하게 대응 */
+    height: 100%; 
     overflow: hidden;
     background: #000;
     touch-action: none;
@@ -19,8 +20,8 @@ body {
 
 #app {
     position: relative;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     overflow: hidden;
     background: #000;
 }
@@ -32,21 +33,17 @@ body {
     object-fit: cover;
 }
 
-/* ========================================================
-   WebGL 캔버스 설정 (기반 레이어)
-========================================================= */
+/* WebGL 캔버스 (카메라 왜곡 레이어) */
 #canvas {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
-    z-index: 1; /* 제일 아래쪽 레이어로 설정 */
+    z-index: 1;
     animation: visionShake 0.4s infinite linear; 
 }
 
-/* ========================================================
-   UI 오버레이 전체 화면 (최상단 레이어)
-========================================================= */
+/* UI 오버레이 전체 화면 (최상단 고정) */
 #overlay {
     position: absolute;
     inset: 0;
@@ -54,29 +51,29 @@ body {
     flex-direction: column;
     justify-content: space-between;
     pointer-events: none;
-    z-index: 9999; /* 왜곡되는 화면보다 무조건 적으로 위에 보이도록 가장 높은 값 설정 */
+    z-index: 99999; /* 삼성 인터넷에서도 무조건 뚫고 나오도록 최상위 부여 */
 }
 
-/* 상단 바 (세로 모드 기본) */
+/* 상단 바 (세로 모드) */
 #topBar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 12px;
-    height: 35px; /* 약간 더 여유 있게 높이 지정 */
-    background: rgba(0, 0, 0, 0.5); /* 반투명 검은색 배경 확실히 부여 */
+    height: 40px; 
+    background: rgba(0, 0, 0, 0.6) !important; /* 배경색 강제 적용 */
     color: #ffffff;
     font-size: 14px;
 }
 
-/* 하단 바 (세로 모드 기본) */
+/* 하단 바 (세로 모드) */
 #bottomBar {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 8px;
-    height: 50px; /* 약간 더 여유 있게 높이 지정 */
-    background: rgba(0, 0, 0, 0.6); /* 반투명 검은색 배경 확실히 부여 */
+    height: 54px; 
+    background: rgba(0, 0, 0, 0.7) !important; /* 배경색 강제 적용 */
 }
 
 #logo {
@@ -90,25 +87,21 @@ body {
     font-weight: bold;
 }
 
-/* ========================================================
-   📱 스마트폰 가로 회전(Landscape) 시 UI 강제 고정 및 최적화
-========================================================= */
+/* 📱 스마트폰 가로 회전(Landscape) 시 스타일 강제 고정 */
 @media (orientation: landscape) {
     #topBar {
-        height: 26px;
+        height: 30px;
         font-size: 12px;
         padding: 0 16px;
-        background: rgba(0, 0, 0, 0.7);
     }
 
     #bottomBar {
-        height: 36px;
-        background: rgba(0, 0, 0, 0.7);
+        height: 40px;
         gap: 6px;
     }
 
     #logo {
-        height: 18px;
+        height: 20px;
     }
 
     #bottomText {
