@@ -45,7 +45,7 @@ body {
     height: 100%;
     z-index: 1;
     /* 물리적 화면 떨림 효과 적용 (너무 어지러우면 이 줄을 주석 처리하세요) */
-    animation: visionShake 0.15s infinite linear;
+    animation: visionShake 0.4s infinite linear;
 }
 
 /* ========================================================
@@ -104,8 +104,8 @@ body {
 ========================================================= */
 @keyframes visionShake {
     0% { transform: scale(1.03) translate(0px, 0px); }
-    25% { transform: scale(1.03) translate(-2px, 1px); }
-    50% { transform: scale(1.03) translate(1px, -1px); }
-    75% { transform: scale(1.03) translate(-1px, 2px); }
+    25% { transform: scale(1.03) translate(-1px, 0.5px); }
+    50% { transform: scale(1.03) translate(0.5px, -0.5px); }
+    75% { transform: scale(1.03) translate(-0.5px, 1px); }
     100% { transform: scale(1.03) translate(0px, 0px); }
 }

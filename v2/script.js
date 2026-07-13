@@ -38,8 +38,8 @@ const fsSource = `
         float dist = length(uv);
 
         // --- 시지각 장애 체험용 나선형 소용돌이 공식 ---
-        float twistStrength = 4.0; // 숫자가 클수록 더 심하게 비틀어집니다.
-        float angle = dist * twistStrength + sin(uTime * 1.0) * 0.2;
+        float twistStrength = 1.8; // 숫자가 클수록 더 심하게 비틀어집니다.
+        float angle = dist * twistStrength + sin(uTime * 0.5) * 0.15;
         
         float s = sin(angle);
         float c = cos(angle);
@@ -47,11 +47,11 @@ const fsSource = `
         vec2 distortedUv = vec2(uv.x * c - uv.y * s, uv.x * s + uv.y * c);
 
         // 실시간으로 시각 정보의 위치가 미세하게 엇나가도록 파동(Wave) 추가
-        distortedUv.x += sin(uTime * 2.5) * 0.02;
-        distortedUv.y += cos(uTime * 2.0) * 0.02;
+        distortedUv.x += sin(uTime * 1.2) * 0.01;
+        distortedUv.y += cos(uTime * 1.0) * 0.01;
 
         // 외곽 여백이 잘려 나가는 것을 방지하기 위한 강제 줌인
-        distortedUv *= 0.82;
+        distortedUv *= 0.90;
 
         distortedUv += 0.5;
 
