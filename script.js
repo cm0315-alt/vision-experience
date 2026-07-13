@@ -88,63 +88,30 @@ function render() {
     const cx = w / 2;
     const cy = h / 2;
 
-    const dx = Math.sin(t * 0.7) * 0.5;
-    const dy = Math.cos(t * 0.6) * 0.5;
+    const dx = Math.sin(t * 0.7) * 0.15;
+    const dy = Math.cos(t * 0.6) * 0.15;
 
-    ctx.save();
+const angle = Math.sin(t * 0.35) * 0.012;
 
-    ctx.translate(cx, cy);
+const scale =
+    1.015 +
+    Math.sin(t * 0.5) * 0.004;
 
-    ctx.rotate(Math.sin(t * 0.2) * SPIRAL);
+ctx.save();
 
-    ctx.scale(ZOOM + Math.sin(t) * DISTORTION, ZOOM + Math.cos(t) * DISTORTION);
+ctx.translate(cx, cy);
 
-    ctx.translate(-cx + dx, -cy + dy);
+ctx.rotate(angle);
 
-    ctx.drawImage(video, 0, 0, w, h);
+ctx.scale(scale, scale);
 
-    ctx.restore();
+ctx.translate(-cx + dx, -cy + dy);
+
+ctx.drawImage(video,0,0,w,h);
+
+ctx.restore();
         // 가장자리 왜곡(약한 소용돌이 느낌)
     const img = ctx.getImageData(0, 0, w, h);
-    const data = img.data;
-
-    const copy = new Uint8ClampedArray(data);
-
-    for (let y = 0; y < h; y += 2) {
-
-        for (let x = 0; x < w; x += 2) {
-
-            const rx = x - cx;
-            const ry = y - cy;
-
-            const r = Math.sqrt(rx * rx + ry * ry);
-
-            // 화면 가장자리만 왜곡
-            const amount = Math.min(r / Math.max(w, h), 1);
-
-            const angle = amount * amount * 0.10;
-
-            const sx = Math.cos(angle) * rx - Math.sin(angle) * ry + cx;
-            const sy = Math.sin(angle) * rx + Math.cos(angle) * ry + cy;
-
-            const ix = Math.floor(sx);
-            const iy = Math.floor(sy);
-
-            if (ix >= 0 && iy >= 0 && ix < w && iy < h) {
-
-                const src = (iy * w + ix) * 4;
-                const dst = (y * w + x) * 4;
-
-                data[dst] = copy[src];
-                data[dst + 1] = copy[src + 1];
-                data[dst + 2] = copy[src + 2];
-                data[dst + 3] = 255;
-
-            }
-
-        }
-
-    }
 
     ctx.putImageData(img, 0, 0);
 
